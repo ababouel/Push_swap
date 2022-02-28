@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:42:27 by ababouel          #+#    #+#             */
-/*   Updated: 2022/02/28 18:09:44 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:37:08 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ void	ft_lstadd_front(t_stack **alsta, t_stack **alstb)
 		else 
 		{
 			temp->next = *alstb;
+			(*alstb->next)
 			*alstb = temp;
-			(*alstb)->next = NULL;
 		}
 	}
 }
