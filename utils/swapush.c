@@ -6,190 +6,71 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:42:27 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/01 22:40:47 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/02 20:02:38 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-typedef struct	s_stack {
-	int				data;
-	struct s_stack	*next;
-}	t_stack;
+#include "../include/push_swap.h"
 
 
 
-void	print(t_stack *stack)
+
+void	print(int nb)
 {
-	printf(" %d\n",stack->data);
+	printf("= %d =\n",nb);
 }
 
-void	ft_lstiter(t_stack *lst, void (*f)(t_stack *))
+void	ft_lstiter(t_stack *lst, void (*f)(int))
 {
 	while (lst)
 	{
-		f(lst);
+		f(lst->data);
 		lst = lst->next;
 	}
 }
 
-void	ft_swap(t_stack *lst)
-{
-	t_stack *temp;
-	int		tim;
-	
-	if (lst != NULL)
-	{
-		temp = lst->next;
-		tim = lst->data;
-		lst->data = temp->data;
-		temp->data = tim;
-	}
-}
-void	ft_ss(t_stack *lsta, t_stack *lstb)
-{
-	ft_swap(lsta);
-	ft_swap(lstb);
-}
-
-
-void	ft_lstadd_back(t_stack **alst, t_stack *new)
-{
-	t_stack	*temp;
-
-	if (*alst == NULL)
-		*alst = new;
-	else
-	{
-		temp = *alst;
-		while (temp->next != NULL)
-		{
-			temp = temp->next;
-		}
-		temp->next = new;
-	}
-}
-
-t_stack	*ft_lstnew(int data)
-{
-	t_stack	*lst;
-
-	lst = malloc(sizeof(t_stack));
-	if (!lst)
-		return (0);
-	lst->data = data;
-	lst->next = NULL;
-	return (lst);
-}
-
-void	ft_lstadd_front(t_stack **alsta, t_stack **alstb)
-{
-	t_stack	*temp;
-
-	temp = NULL;
-	if (*alsta)
-	{
-		temp = *alsta;
-		*alsta = (*alsta)->next;
-		temp->next = NULL;
-		if (!*alstb)
-			*alstb = temp;
-		else 
-		{
-			temp->next = *alstb;
-			*alstb = temp;
-		}
-	}
-}
-
-void	ft_rot(t_stack **stack)
-{
-	t_stack *temp;
-	t_stack *tempx;
-	temp = NULL;
-	tempx = NULL;
-	if (*stack)
-	{
-		temp = *stack;
-		tempx = *stack;
-		*stack = (*stack)->next;
-
-		while(tempx->next != NULL)
-		{
-			tempx = tempx->next;
-		}
-		tempx->next = temp;
-		temp->next = NULL;
-	}
-}
-
-void	ft_rotrot(t_stack **stack)
-{
-	t_stack *temp;
-	t_stack *tempx;
-	t_stack *tempy;
-	temp = NULL;
-	tempx = NULL;
-	tempy = NULL;
-	if (*stack)
-	{
-		tempx = *stack;
-		tempy = *stack;
-		while(tempx->next != NULL)
-		{
-			tempx = tempx->next;
-		}
-
-		tempx->next = NULL;
-		temp->next = tempy;
-		*stack = temp;
-	}
-
-}
-
 int	main()
 {
-	t_stack *stack_a;
-	t_stack	*stack_b;
-	t_stack *node1;
-	t_stack *node6;
-	t_stack *node2;
-	t_stack *node3;
-	t_stack *node4;
-	t_stack *node5;
+	t_stack *ska = NULL;
+	t_stack *skb = NULL;
+	t_stack	*temp = NULL;
+	t_stack *n1 = NULL;
+	t_stack *n2 = NULL;
+	t_stack *n3 = NULL;
+	t_stack *n4 = NULL;
+	t_stack *n5 = NULL;
+	t_stack *n6 = NULL;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	node1 = ft_lstnew(5);
-	node2 = ft_lstnew(10);
-	node3 = ft_lstnew(-10);
-	node4 = ft_lstnew(8);
-	node5 = ft_lstnew(18);
-	node6 = ft_lstnew(-18);
+	n1 = ft_lstnew(4);
+	n2 = ft_lstnew(3);
+	n3 = ft_lstnew(10);
+	n4 = ft_lstnew(11);
+	n5 = ft_lstnew(9);
+	n6 = ft_lstnew(2);
+	ft_add_back(&ska,n1);
+	ft_add_back(&ska,n2);
+	ft_add_back(&ska,n3);
+	ft_add_back(&ska,n4);
+	ft_add_back(&ska,n5);
+	ft_add_back(&ska,n6);
 
-	ft_lstadd_back(&stack_a, node1);
-	ft_lstadd_back(&stack_a, node2);
-	ft_lstadd_back(&stack_a, node3);
-	ft_lstadd_back(&stack_a, node4);
-	ft_lstadd_back(&stack_a, node5);
-	ft_lstadd_back(&stack_a, node6);
+	printf("<====================data======================>\n");
+	printf("<===stack_a===>\n");
+	ft_lstiter(ska,print);
+	printf("<===stack_b===>\n");
+	ft_lstiter(skb,print);
+//  modif pa
+	
+	printf("<====================data======================>\n");
+	printf("<===stack_a===>\n");
+	ft_lstiter(ska,print);
+	printf("<===stack_b===>\n");
+	ft_lstiter(skb,print);
+// modif pb
 
-	ft_lstiter(stack_a,print);
-	printf("=====data=====a\n");
-	//ft_swap(stack_a);
-	ft_rot(&stack_a);
-	ft_lstiter(stack_a,print);
-	printf("=====data=====b\n");
-	ft_rot(&stack_a);
-	ft_lstiter(stack_a,print);
-	printf("=====data=====b\n");
-	ft_rot(&stack_a);
-	ft_lstiter(stack_a,print);
-	printf("=====data=====b\n");
-	ft_rotrot(&stack_a);
-	ft_lstiter(stack_a,print);
-	printf("=====data=====b\n");
-
+	printf("<====================data======================>\n");
+	printf("<===stack_a===>\n");
+	ft_lstiter(ska,print);
+	printf("<===stack_b===>\n");
+	ft_lstiter(skb,print);
 }
