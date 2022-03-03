@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:53:05 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/02 19:55:39 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:03:16 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,31 @@ void	rotrot(t_stack **stack)
 		tfrst->prev = NULL;
 		tfrst->next = *stack;
 		*stack = tfrst;
+	}
+}
+
+void	push_a(t_stack **ska, t_stack **skb)
+{
+	t_stack	*temp;
+
+	temp = NULL;
+	if (*ska)
+	{
+		temp = *ska;
+		*ska = (*ska)->next;
+		ft_lstadd_front(skb, temp);
+	}
+}
+
+void	push_b(t_stack **ska, t_stack **skb)
+{
+	t_stack	*temp;
+
+	temp = NULL;
+	if (*skb)
+	{
+		temp = *skb;
+		*skb = (*skb)->next;
+		ft_lstadd_front(ska, temp);
 	}
 }

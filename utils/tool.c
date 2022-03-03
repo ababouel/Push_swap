@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:50:12 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/02 19:52:28 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:02:03 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,21 @@ void	ft_add_back(t_stack **alst, t_stack *new)
 			temp = temp->next;
 		temp->next = new;
 		new->prev = temp;
+	}
+}
+
+void	ft_lstadd_front(t_stack **alst, t_stack *new)
+{
+	if (!*alst && new)
+	{
+		*alst = new;
+		(*alst)->next = NULL;
+		(*alst)->prev = NULL;
+	}
+	else if (new)
+	{
+		(*alst)->prev = new;
+		new->next = *alst;
+		*alst = new;
 	}
 }
