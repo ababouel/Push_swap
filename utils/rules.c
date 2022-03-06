@@ -6,13 +6,13 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:53:05 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/03 18:03:16 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/06 16:05:05 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap(t_stack **stack)
+void	swap(t_stack **stack,char c)
 {
 	int	temp;
 
@@ -22,10 +22,14 @@ void	swap(t_stack **stack)
 		temp = (*stack)->data;
 		(*stack)->data = (*stack)->next->data;
 		(*stack)->next->data = temp;
+		if (c == 'a')
+			write(1, "sa\n", 3);
+		else if (c == 'b')
+			write(1,"sb\n",3);
 	}
 }
 
-void	rot(t_stack **stack)
+void	rot(t_stack **stack,char c)
 {
 	t_stack	*tfrst;
 	t_stack	*tlast;
@@ -41,10 +45,14 @@ void	rot(t_stack **stack)
 		tlast->next = tfrst;
 		tfrst->prev = tlast;
 		tfrst->next = NULL;
+		if (c == 'a')
+			write(1, "ra\n", 3);
+		else if (c == 'b')
+			write(1,"rb\n",3);
 	}
 }
 
-void	rotrot(t_stack **stack)
+void	rotrot(t_stack **stack,char c)
 {
 	t_stack	*tfrst;
 	t_stack	*tlast;
@@ -59,6 +67,10 @@ void	rotrot(t_stack **stack)
 		tfrst->prev = NULL;
 		tfrst->next = *stack;
 		*stack = tfrst;
+		if (c == 'a')
+			write(1, "rra\n", 4);
+		else if (c == 'b')
+			write(1,"rrb\n",4);
 	}
 }
 

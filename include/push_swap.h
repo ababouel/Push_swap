@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:38:50 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/03 18:04:47 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/06 15:58:19 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ t_stack	*ft_lstlast(t_stack *lst);
 t_stack	*ft_lstnew(int data);
 int		ft_lstsize(t_stack *lst);
 void	ft_add_back(t_stack **alst, t_stack *new);
-void 	swap(t_stack **stack);
-void	rot(t_stack **stack);
-void	rotrot(t_stack **stack);
+void 	swap(t_stack **stack,char c);
+void	rot(t_stack **stack,char c);
+void	rotrot(t_stack **stack,char c);
 void	push_a(t_stack **ska, t_stack **skb);
 void	push_b(t_stack **ska, t_stack **skb);
 void	ft_lstadd_front(t_stack **alst, t_stack *new);
