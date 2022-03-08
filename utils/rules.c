@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:26:50 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 20:59:46 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 22:28:38 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	pusha(t_stack *stka, t_stack *stkb)
 	}
 	stkb->size++;
 	stka->size--;
+	write(1, "pa\n", 3);
 	return (0);
 }
 
@@ -63,10 +64,11 @@ int	pushb(t_stack *stka, t_stack *stkb)
 	}
 	stkb->size--;
 	stka->size++;
+	write(1, "pb\n", 3);
 	return (0);
 }
 
-int     swap(t_stack *stack, char c)
+int	swap(t_stack *stack, char c)
 {
 	int	temp;
 
@@ -111,10 +113,11 @@ int	rot(t_stack *stack, char c)
 	if (stack->size == 0)
 		return (-1);
 	temp = stack->head;
+	lstemp = stack->tail;
 	stack->head = stack->head->next;
 	temp->next = NULL;
+	lstemp->next = temp;
 	stack->tail = temp;
-
 	if (c == 'a')
 		write(1, "ra\n", 3);
 	else if (c == 'b')

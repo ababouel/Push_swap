@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 20:59:54 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 22:10:45 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,28 @@ int	main(int ac, char **av)
 		print(ska);
 		printf("stack_b\n");
 		print(skb);
-		
-		pusha(ska,skb);
-		pusha(ska,skb);
-		pusha(ska,skb);
-		printf("stack_a\n");
-		print(ska);
-		printf("stack_b\n");
-		print(skb);
+			
+		rot(ska, 'a');
+		rot(ska, 'a');
+		pusha(ska, skb);
+		rot(ska, 'a');
+		rot(ska, 'a');
+		pusha(ska, skb);
 		rorot(ska, 'a');
+		pusha(ska, skb);
+		rot(ska, 'a');
+		pusha(ska, skb);
+		pusha(ska, skb);
 		rorot(ska, 'a');
-		rorot(ska, 'a');
-		printf("stack_a\n");
-		print(ska);
-		printf("stack_b\n");
-		print(skb);
+		pushb(ska, skb);
+		pushb(ska, skb);
+		pushb(ska, skb);
+		pushb(ska, skb);
+		pushb(ska, skb);
 
+		printf("stack_a\n");
+		print(ska);
+		printf("stack_b\n");
+		print(skb);
 	}
 }

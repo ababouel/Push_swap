@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 20:59:57 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 22:30:12 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_node {
 	struct s_node	*next;
 }	t_node;
 
-typedef	struct	s_stack {
+typedef struct s_stack {
 	int		size;
 	t_node	*head;
 	t_node	*tail;
@@ -34,12 +34,12 @@ int		ins_next_node(t_stack *stack, t_node *node, int data);
 void	ins_rem_node(t_stack *stack, t_node *node, int data);
 int		pusha(t_stack *stka, t_stack *stkb);
 int		pushb(t_stack *stka, t_stack *stkb);
-int		swap(t_stack *stack,char c);
-int		rorot(t_stack *stack,char c);
-int		rot(t_stack *stack,char c);
-int		rrorot(t_stack *ska, t_stack *skb);
-int		sswap(t_stack *ska, t_stack *skb);
-int		rrot(t_stack *ska, t_stack *skb);
+int		swap(t_stack *stack, char c);
+int		rorot(t_stack *stack, char c);
+int		rot(t_stack *stack, char c);
+void	rrorot(t_stack *ska, t_stack *skb);
+void	sswap(t_stack *ska, t_stack *skb);
+void	rrot(t_stack *ska, t_stack *skb);
 t_node	*nodex(t_stack *stack, int size);
 
 #endif
