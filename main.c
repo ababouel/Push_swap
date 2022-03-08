@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 18:37:05 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 20:59:54 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int ac, char **av)
 {
 	t_stack	*ska;
 	t_stack *skb;
+	t_node	*tempa;
+	t_node	*tempb;
 
 	if(ac > 1)
 	{
@@ -66,8 +68,9 @@ int	main(int ac, char **av)
 		print(ska);
 		printf("stack_b\n");
 		print(skb);
-		swap(ska, 'a');
-		swap(skb, 'b');
+		rorot(ska, 'a');
+		rorot(ska, 'a');
+		rorot(ska, 'a');
 		printf("stack_a\n");
 		print(ska);
 		printf("stack_b\n");

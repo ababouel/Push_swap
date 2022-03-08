@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 18:37:08 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 20:59:57 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,6 @@ int		rot(t_stack *stack,char c);
 int		rrorot(t_stack *ska, t_stack *skb);
 int		sswap(t_stack *ska, t_stack *skb);
 int		rrot(t_stack *ska, t_stack *skb);
+t_node	*nodex(t_stack *stack, int size);
+
 #endif
