@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:11:51 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 17:30:37 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 20:59:51 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,18 @@ int	ins_next_node(t_stack *stack, t_node *node, int data)
 	}
 	stack->size++;
 	return (0);
+}
+
+t_node	*nodex(t_stack *stack, int size)
+{
+	t_node	*temp;
+	int		index;
+
+	if (stack->head == NULL)
+		return (0);
+	temp = stack->head;
+	index = 0;
+	while (index++ < size)
+		temp = temp->next;
+	return (temp);
 }

@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:26:50 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 18:37:02 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/08 20:59:46 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	pushb(t_stack *stka, t_stack *stkb)
 	return (0);
 }
 
-int     swap(t_stack *stack,char c)
+int     swap(t_stack *stack, char c)
 {
 	int	temp;
 
@@ -85,5 +85,39 @@ int     swap(t_stack *stack,char c)
 
 int	rorot(t_stack *stack, char c)
 {
-	
+	t_node	*prevtemp;
+	t_node	*temp;
+
+	if (stack->size == 0)
+		return (-1);
+	prevtemp = nodex(stack, (stack->size - 2));
+	prevtemp->next = NULL;
+	temp = stack->tail;
+	temp->next = stack->head;
+	stack->head = temp;
+	stack->tail = prevtemp;
+	if (c == 'a')
+		write(1, "rra\n", 4);
+	else if (c == 'b')
+		write(1, "rrb\n", 4);
+	return (0);
+}
+
+int	rot(t_stack *stack, char c)
+{
+	t_node	*temp;
+	t_node	*lstemp;
+
+	if (stack->size == 0)
+		return (-1);
+	temp = stack->head;
+	stack->head = stack->head->next;
+	temp->next = NULL;
+	stack->tail = temp;
+
+	if (c == 'a')
+		write(1, "ra\n", 3);
+	else if (c == 'b')
+		write(1, "rb\n", 3);
+	return (0);
 }
