@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 22:30:12 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/09 17:21:23 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,8 @@ void	rrorot(t_stack *ska, t_stack *skb);
 void	sswap(t_stack *ska, t_stack *skb);
 void	rrot(t_stack *ska, t_stack *skb);
 t_node	*nodex(t_stack *stack, int size);
+int		is_sorted(t_stack *stack);
+int		lowestnum(t_node *head);
+int		sort_threenode(t_stack *stack, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 22:10:45 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/09 18:32:50 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,18 @@ int	main(int ac, char **av)
 		printf("#################printing###################\n");
 		printf("stack_a\n");
 		print(ska);
-		printf("stack_b\n");
-		print(skb);
-			
-		rot(ska, 'a');
-		rot(ska, 'a');
-		pusha(ska, skb);
-		rot(ska, 'a');
-		rot(ska, 'a');
-		pusha(ska, skb);
-		rorot(ska, 'a');
-		pusha(ska, skb);
-		rot(ska, 'a');
-		pusha(ska, skb);
-		pusha(ska, skb);
-		rorot(ska, 'a');
-		pushb(ska, skb);
-		pushb(ska, skb);
-		pushb(ska, skb);
-		pushb(ska, skb);
-		pushb(ska, skb);
-
+		//printf("stack_b\n");
+		//print(skb);
+		if (ska->size == 2)
+		{
+			if(ska->head->data > ska->head->next->data)
+				swap(ska, 'a');
+		}
+		else if (ska->size == 3)
+			sort_threenode(ska, 'a');
 		printf("stack_a\n");
 		print(ska);
-		printf("stack_b\n");
-		print(skb);
+		//printf("stack_b\n");
+		//print(skb);
 	}
 }
