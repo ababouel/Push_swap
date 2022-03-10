@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:11:51 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/09 17:20:59 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/10 16:25:13 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,28 +66,28 @@ int	lowestnum(t_node *head)
 
 	min = 2147483647;
 	temp = head;
-	while (temp != NULL) 
+	while (temp != NULL)
 	{
 		if (min > temp->data)
 			min = temp->data;
-	   temp	= temp->next;
+		temp = temp->next;
 	}
 	return (min);
 }
 
 int	is_sorted(t_stack *stack)
 {
-	t_node *temp;
-	
+	t_node	*temp;
+
 	if (stack->head == NULL)
-		return 0;
+		return (0);
 	temp = NULL;
 	temp = stack->head;
 	while (temp != NULL)
 	{
 		if (temp->data > temp->next->data)
-			return 1;
+			return (1);
 		temp = temp->next;
 	}
-    return (0);
+	return (0);
 }

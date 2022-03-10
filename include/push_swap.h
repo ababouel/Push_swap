@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/09 17:21:23 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:33:21 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@ t_node	*nodex(t_stack *stack, int size);
 int		is_sorted(t_stack *stack);
 int		lowestnum(t_node *head);
 int		sort_threenode(t_stack *stack, char c);
+void	sorttwnode(t_stack *stack, char c);
+int		getindex(t_stack *stack, int number);
+void	sorting_ten(t_stack *ska, t_stack *skb);
 
 #endif
