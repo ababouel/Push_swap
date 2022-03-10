@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/09 18:32:50 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/09 19:15:57 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int	main(int ac, char **av)
 		init_stack(ska);
 		init_stack(skb);
 		injectdata(ska,av);
-		printf("#################printing###################\n");
-		printf("stack_a\n");
-		print(ska);
+		//printf("#################printing###################\n");
+		//printf("stack_a\n");
+		//print(ska);
 		//printf("stack_b\n");
 		//print(skb);
 		if (ska->size == 2)
@@ -67,8 +67,8 @@ int	main(int ac, char **av)
 		}
 		else if (ska->size == 3)
 			sort_threenode(ska, 'a');
-		printf("stack_a\n");
-		print(ska);
+		//printf("stack_a\n");
+		//print(ska);
 		//printf("stack_b\n");
 		//print(skb);
 	}
