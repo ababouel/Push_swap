@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:00:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/10 17:38:38 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/11 18:42:47 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	sorting_ten(t_stack *ska, t_stack *skb)
 			else
 				rorot(ska, 'a');
 		}
-		pusha(ska, skb);
+		pushb(ska, skb);
 	}
 	sort_threenode(ska, 'a');
 	while (skb->size > 0)
-		pushb(ska, skb);
+		pusha(ska, skb);
 }

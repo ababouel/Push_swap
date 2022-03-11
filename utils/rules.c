@@ -6,13 +6,13 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:26:50 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/08 22:28:38 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/11 18:42:06 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	pusha(t_stack *stka, t_stack *stkb)
+int	pushb(t_stack *stka, t_stack *stkb)
 {
 	t_node	*temp;
 
@@ -36,11 +36,11 @@ int	pusha(t_stack *stka, t_stack *stkb)
 	}
 	stkb->size++;
 	stka->size--;
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 	return (0);
 }
 
-int	pushb(t_stack *stka, t_stack *stkb)
+int	pusha(t_stack *stka, t_stack *stkb)
 {
 	t_node	*temp;
 
@@ -64,7 +64,7 @@ int	pushb(t_stack *stka, t_stack *stkb)
 	}
 	stkb->size--;
 	stka->size++;
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 	return (0);
 }
 
