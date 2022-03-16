@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:11:51 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/10 16:25:13 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:47:35 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ins_next_node(t_stack *stack, t_node *node, int data)
 	if (new_node == NULL)
 		return (-1);
 	new_node->data = data;
+	new_node->index = 0;
+	new_node->check = 0;
 	if (node == NULL)
 	{
 		if (stack->size == 0)
@@ -85,6 +87,8 @@ int	is_sorted(t_stack *stack)
 	temp = stack->head;
 	while (temp != NULL)
 	{
+		if (temp->next == NULL)
+			return (0);
 		if (temp->data > temp->next->data)
 			return (1);
 		temp = temp->next;

@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/11 18:45:10 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:36:44 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print(t_stack *ska)
 	temp = ska->head;
 	while (temp != NULL)
 	{
-		printf("-- %d --\n", temp->data);
+		printf("-- %d --/-- %d --\n", temp->data, temp->index);
 		temp = temp->next;
 	}
 }
@@ -53,18 +53,21 @@ int	main(int ac, char **av)
 		init_stack(ska);
 		init_stack(skb);
 		injectdata(ska,av);
-	//	printf("stack_a\n");
-	//	print(ska);
-	//	printf("stack_b\n");
-	//	print(skb);
-		if (ska->size == 2)
-			sorttwnode(ska, 'a');
-		else if (ska->size == 3)
-			sort_threenode(ska, 'a');
+		indexthenode(ska);	
+		if (is_sorted(ska) == 1){
+			if (ska->size == 2)
+				sorttwnode(ska, 'a');
+			else if (ska->size == 3)
+				sort_threenode(ska, 'a');
+			else if(ska->size <= 10)
+				sorting_ten(ska, skb);
+			else if(ska->size > 10 && ska->size <= 100)
+
+		}
+		printf("stack_a\n");
+		print(ska);
 		sorting_ten(ska, skb);
-	//	printf("stack_a\n");
-	//	print(ska);
-	//	printf("stack_b\n");
-	//	print(skb);
+		printf("stack_a\n");
+		print(ska);
 	}
 }

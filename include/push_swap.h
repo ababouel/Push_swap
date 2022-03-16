@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/10 17:33:21 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:10:18 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_node {
 	int				data;
 	int				index;
+	int				check;
 	struct s_node	*next;
 }	t_node;
 
@@ -47,5 +48,6 @@ int		sort_threenode(t_stack *stack, char c);
 void	sorttwnode(t_stack *stack, char c);
 int		getindex(t_stack *stack, int number);
 void	sorting_ten(t_stack *ska, t_stack *skb);
+void    indexthenode(t_stack *ska);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:26:50 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/11 18:42:06 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/16 19:29:41 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ int	swap(t_stack *stack, char c)
 	temp = stack->head->data;
 	stack->head->data = stack->head->next->data;
 	stack->head->next->data = temp;
+	temp = stack->head->index;
+	stack->head->index = stack->head->next->index;
+	stack->head->next->index = temp;
 	if (c == 'a')
 		write(1, "sa\n", 3);
 	else if (c == 'b')
