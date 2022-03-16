@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/16 19:36:44 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/16 23:04:40 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	main(int ac, char **av)
 		init_stack(ska);
 		init_stack(skb);
 		injectdata(ska,av);
-		indexthenode(ska);	
 		if (is_sorted(ska) == 1){
 			if (ska->size == 2)
 				sorttwnode(ska, 'a');
@@ -62,12 +61,15 @@ int	main(int ac, char **av)
 			else if(ska->size <= 10)
 				sorting_ten(ska, skb);
 			else if(ska->size > 10 && ska->size <= 100)
-
+			{
+			//	printf("dataxxxx\n");
+				indexthenode(ska);
+				pushbbeta(ska, skb, 20);
+			}
 		}
 		printf("stack_a\n");
 		print(ska);
-		sorting_ten(ska, skb);
-		printf("stack_a\n");
-		print(ska);
+		printf("stack_b\n");
+		print(skb);
 	}
 }

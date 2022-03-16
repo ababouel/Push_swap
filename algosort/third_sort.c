@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:14:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/16 19:06:33 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/16 23:07:46 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,21 @@ int	lowestnumexp(t_node *head)
 		temp = temp->next;
 	}
 	return (min);
+}
+
+int	lowestnu(t_node *head, int proxi)
+{
+	t_node	*temp;
+	int		result;
+
+	temp = head;
+	while (temp != NULL)
+	{
+		if (temp->index < proxi)
+			return (temp->index);
+		temp = temp->next;
+	}
+	return (-1);
 }
 
 void	indexthenode(t_stack *ska)
@@ -49,5 +64,43 @@ void	indexthenode(t_stack *ska)
 		temp2->index = index;
 		temp = temp->next;
 		index++;
+	}
+}
+
+void	pushbbeta(t_stack *ska, t_stack *skb,int proxi)
+{
+	int	index;
+	int	lnum;
+	int	middle;
+
+	index = 0;
+	lnum = 0;
+	middle = 0;
+	printf("data\n");
+	while (ska->size > 80)
+	{
+		lnum = lowestnu(ska->head, proxi);
+		if (lnum == -1)
+			return ;
+		index = getindexes(ska, lnum);
+		middle = ska->size / 2;
+		while (ska->head->index != lnum)
+		{
+			if (middle > index)
+			{
+				if (skb->size == 1)
+					rot(ska, 'a');
+				else
+					rrot(ska, skb);
+			}
+			else
+			{
+				if (skb->size == 1)
+					rorot(ska, 'a');
+				else
+					rrorot(ska, skb);
+			}
+		}
+		pushb(ska,skb);
 	}
 }
