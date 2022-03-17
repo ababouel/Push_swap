@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:14:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/16 23:07:46 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:04:51 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,18 @@ void	indexthenode(t_stack *ska)
 	}
 }
 
-void	pushbbeta(t_stack *ska, t_stack *skb,int proxi)
+void	pushbbeta(t_stack *ska, t_stack *skb,int proxi,int init)
 {
 	int	index;
 	int	lnum;
 	int	middle;
+	int	key_num;
 
 	index = 0;
 	lnum = 0;
 	middle = 0;
-	printf("data\n");
-	while (ska->size > 80)
+	key_num = (proxi - init) / 2;
+	while (ska->size > (100 - proxi))
 	{
 		lnum = lowestnu(ska->head, proxi);
 		if (lnum == -1)
@@ -87,20 +88,43 @@ void	pushbbeta(t_stack *ska, t_stack *skb,int proxi)
 		while (ska->head->index != lnum)
 		{
 			if (middle > index)
-			{
-				if (skb->size == 1)
-					rot(ska, 'a');
-				else
-					rrot(ska, skb);
-			}
+				rot(ska, 'a');
 			else
-			{
-				if (skb->size == 1)
-					rorot(ska, 'a');
-				else
-					rrorot(ska, skb);
-			}
+				rorot(ska, 'a');
 		}
-		pushb(ska,skb);
+		pushb(ska, skb);
+		if (lnum <= key_num && skb->size != 1)
+		{
+			if (ska->head->index < key_num)
+				rrot(ska, skb);
+			else
+				rot(skb, 'b');
+		}
 	}
 }
+
+void	pushabeta(t_stack *ska, t_stack *skb)
+{
+	int	index;
+	int	lnum;
+	int	proxi;
+
+	index = 0;
+	lnum = 0;
+	proxi = 0;
+	while (skb->size > 0)
+	{
+		lnum = biggestnum(skb->head);
+		index = getindexes(skb, lnum);
+		proxi = skb->size / 2;
+		while (skb->head->index != lnum)
+		{
+			if (proxi > index)
+				rot(skb, 'b');
+			else
+				rorot(skb, 'b');
+		}
+		pusha(ska, skb);
+	}
+}
+

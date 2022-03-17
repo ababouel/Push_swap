@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/16 22:38:14 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:45:31 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void	sorttwnode(t_stack *stack, char c);
 int		getindex(t_stack *stack, int number);
 void	sorting_ten(t_stack *ska, t_stack *skb);
 void    indexthenode(t_stack *ska);
-void    pushbbeta(t_stack *ska, t_stack *skb,int proxi);
+void    pushbbeta(t_stack *ska, t_stack *skb,int proxi,int init);
 int		getindexes(t_stack *stack, int number);
+int		biggestnum(t_node *head);
+void    pushabeta(t_stack *ska, t_stack *skb);
+
 #endif

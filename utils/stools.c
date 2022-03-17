@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 16:46:42 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/16 22:39:25 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:38:02 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,20 @@ int	getindexes(t_stack *stack, int number)
 		index++;
 	}
 	return (index);
+}
+
+int	biggestnum(t_node *head)
+{
+	int		max;
+	t_node	*temp;
+
+	max = 0;
+	temp = head;
+	while (temp != NULL)
+	{
+		if (max < temp->index)
+			max = temp->index;
+		temp = temp->next;
+	}
+	return (max);
 }

@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/16 23:04:40 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:10:17 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,15 @@ int	main(int ac, char **av)
 	t_stack *skb;
 	t_node	*tempa;
 	t_node	*tempb;
+	int		init;
+	int		proxi;
+	int		proxit;
 
 	if(ac > 1)
 	{
+		init = 0;
+		proxi = 0;
+		proxit = 0;
 		ska = malloc(sizeof(t_stack));
 		skb = malloc(sizeof(t_stack));
 		init_stack(ska);
@@ -62,14 +68,34 @@ int	main(int ac, char **av)
 				sorting_ten(ska, skb);
 			else if(ska->size > 10 && ska->size <= 100)
 			{
-			//	printf("dataxxxx\n");
+				proxi = ska->size / 5;
+				proxit = ska->size / 5;
 				indexthenode(ska);
-				pushbbeta(ska, skb, 20);
+				while (ska->size > 0)
+				{
+					pushbbeta(ska, skb, proxi, init);
+					init = proxi;
+					proxi += proxit;
+				}
+				pushabeta(ska, skb);
+			}
+			else if(ska->size > 100 && ska->size <= 500)
+			{
+				proxi = ska->size / 11;
+				proxit = ska->size / 11;
+				indexthenode(ska);
+				while (ska->size > 0)
+				{
+					pushbbeta(ska, skb, proxi, init);
+					init = proxi;
+					proxi += proxit;
+				}
+				pushabeta(ska, skb);
 			}
 		}
-		printf("stack_a\n");
+		/*printf("stack_a\n");
 		print(ska);
 		printf("stack_b\n");
-		print(skb);
+		print(skb);*/
 	}
 }
