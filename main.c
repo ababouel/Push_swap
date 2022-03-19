@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/17 18:10:17 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:24:09 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,20 @@ int	main(int ac, char **av)
 	t_stack *skb;
 	t_node	*tempa;
 	t_node	*tempb;
-	int		init;
-	int		proxi;
-	int		proxit;
+	int		indpb;
+	int		indrb;
 
 	if(ac > 1)
 	{
-		init = 0;
-		proxi = 0;
-		proxit = 0;
+		indpb = 5;
+		indrb = 3;
 		ska = malloc(sizeof(t_stack));
 		skb = malloc(sizeof(t_stack));
 		init_stack(ska);
 		init_stack(skb);
 		injectdata(ska,av);
 		if (is_sorted(ska) == 1){
+			indexthenode(ska);
 			if (ska->size == 2)
 				sorttwnode(ska, 'a');
 			else if (ska->size == 3)
@@ -68,29 +67,18 @@ int	main(int ac, char **av)
 				sorting_ten(ska, skb);
 			else if(ska->size > 10 && ska->size <= 100)
 			{
-				proxi = ska->size / 5;
-				proxit = ska->size / 5;
-				indexthenode(ska);
-				while (ska->size > 0)
+				while(ska->size > 0)
 				{
-					pushbbeta(ska, skb, proxi, init);
-					init = proxi;
-					proxi += proxit;
+					chanks(ska, skb, indpb, indrb);
+					indpb += 5;
+					indrb += 5;
+					printf("indepb=>%d\n",indpb);
+					printf("inderb=>%d\n",indrb);
 				}
-				pushabeta(ska, skb);
+				pushabeta(ska,skb);
 			}
 			else if(ska->size > 100 && ska->size <= 500)
 			{
-				proxi = ska->size / 11;
-				proxit = ska->size / 11;
-				indexthenode(ska);
-				while (ska->size > 0)
-				{
-					pushbbeta(ska, skb, proxi, init);
-					init = proxi;
-					proxi += proxit;
-				}
-				pushabeta(ska, skb);
 			}
 		}
 		/*printf("stack_a\n");

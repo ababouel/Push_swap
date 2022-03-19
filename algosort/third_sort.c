@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:14:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/17 18:04:51 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:26:35 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,37 @@ int	lowestnumexp(t_node *head)
 	return (min);
 }
 
-int	lowestnu(t_node *head, int proxi)
+int	hold_first(t_node *head, int proxi)
+{
+	t_node	*temp;
+	int 	index;
+
+	temp = head;
+	index = 0;
+	while (temp != NULL)
+	{
+		if (temp->index < proxi)
+			return (index);
+		temp = temp->next;
+		index++;
+	}
+	return (-1);
+}
+
+int	hold_second(t_node *head, int proxi)
 {
 	t_node	*temp;
 	int		result;
 
 	temp = head;
+	result = 0;
 	while (temp != NULL)
 	{
-		if (temp->index < proxi)
-			return (temp->index);
+		if(temp->index < proxi)
+			result++;
 		temp = temp->next;
 	}
-	return (-1);
+	return (result);
 }
 
 void	indexthenode(t_stack *ska)
@@ -67,57 +85,91 @@ void	indexthenode(t_stack *ska)
 	}
 }
 
-void	pushbbeta(t_stack *ska, t_stack *skb,int proxi,int init)
+int	lmove(int holdf, int holds, t_stack *ska)
 {
-	int	index;
-	int	lnum;
-	int	middle;
-	int	key_num;
+	int numbf;
+	int	numbs;
 
+	numbf = 0;
+	numbs = 0;
+	if (holdf > (ska->size / 2))
+		numbf = ska->size - holdf;
+	else
+		numbf = holdf - 1;
+	if (holds > (ska->size / 2))
+		numbs = ska->size - holds;
+	else
+		numbs = holds - 1;
+	if (numbf < numbs)
+		return (holdf);
+	else
+		return (holds);
+}
+
+int	numberdex(int dex, t_node *head)
+{
+	t_node	*temp;
+	int		index;
+	
+	temp = head;
 	index = 0;
-	lnum = 0;
-	middle = 0;
-	key_num = (proxi - init) / 2;
-	while (ska->size > (100 - proxi))
+	while(index < dex)
 	{
-		lnum = lowestnu(ska->head, proxi);
-		if (lnum == -1)
+		temp = temp->next;
+		index++;
+	}
+	return (temp->index);
+}
+
+void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
+{
+	int	lnum;
+	int	holdf;
+	int	holds;
+	int	keynum;
+	int index;
+
+	keynum = 0;
+	index = 0;
+	while (index < indpb)
+	{
+		holdf = hold_first(ska->head, indpb);
+		if (holdf == -1)
 			return ;
-		index = getindexes(ska, lnum);
-		middle = ska->size / 2;
+		holds = hold_second(ska->head, indpb);
+		keynum = lmove(holdf, holds, ska);
+		lnum = numberdex(keynum, ska->head);
 		while (ska->head->index != lnum)
 		{
-			if (middle > index)
+			if ((ska->size / 2) > keynum)
 				rot(ska, 'a');
-			else
+			else 
 				rorot(ska, 'a');
 		}
 		pushb(ska, skb);
-		if (lnum <= key_num && skb->size != 1)
-		{
-			if (ska->head->index < key_num)
-				rrot(ska, skb);
-			else
-				rot(skb, 'b');
-		}
+		printf("data\n");
+		if (ska->head->index != 0 && ska->head->index < indrb)
+			rot(skb, 'b');
+		printf("datahhf\n");
+		index++;
 	}
 }
 
 void	pushabeta(t_stack *ska, t_stack *skb)
 {
 	int	index;
-	int	lnum;
+	int	bnum;
 	int	proxi;
 
 	index = 0;
-	lnum = 0;
+	bnum = 0;
 	proxi = 0;
 	while (skb->size > 0)
 	{
-		lnum = biggestnum(skb->head);
-		index = getindexes(skb, lnum);
+		bnum = biggestnum(skb->head);
+		index = getindexes(skb, bnum);
 		proxi = skb->size / 2;
-		while (skb->head->index != lnum)
+		while (skb->head->index != bnum)
 		{
 			if (proxi > index)
 				rot(skb, 'b');
