@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/19 20:24:09 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/19 22:49:47 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ int	main(int ac, char **av)
 				sorting_ten(ska, skb);
 			else if(ska->size > 10 && ska->size <= 100)
 			{
-				while(ska->size > 0)
+				while (ska->size > 0)
 				{
 					chanks(ska, skb, indpb, indrb);
 					indpb += 5;
 					indrb += 5;
-					printf("indepb=>%d\n",indpb);
-					printf("inderb=>%d\n",indrb);
+				//	printf("indepb=>%d\n",indpb);
+				//	printf("inderb=>%d\n",indrb);
 				}
 				pushabeta(ska,skb);
 			}

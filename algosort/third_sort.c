@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:14:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/19 20:26:35 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/19 23:02:24 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,20 +137,25 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 		if (holdf == -1)
 			return ;
 		holds = hold_second(ska->head, indpb);
-		keynum = lmove(holdf, holds, ska);
-		lnum = numberdex(keynum, ska->head);
+		//keynum = lmove(holdf, holds, ska);
+		lnum = numberdex(holdf, ska->head);
 		while (ska->head->index != lnum)
 		{
-			if ((ska->size / 2) > keynum)
+			if ((ska->size / 2) > holdf)
 				rot(ska, 'a');
 			else 
 				rorot(ska, 'a');
 		}
 		pushb(ska, skb);
-		printf("data\n");
-		if (ska->head->index != 0 && ska->head->index < indrb)
-			rot(skb, 'b');
-		printf("datahhf\n");
+		if (skb->size >= 1 && skb->head->index < indrb)
+		{
+			if (ska->head->index > indpb)
+				rrot(ska, skb);
+			else
+				rot(skb, 'b');
+		}
+		//printf("data\n");
+		//printf("datahhf\n");
 		index++;
 	}
 }
@@ -179,4 +184,3 @@ void	pushabeta(t_stack *ska, t_stack *skb)
 		pusha(ska, skb);
 	}
 }
-
