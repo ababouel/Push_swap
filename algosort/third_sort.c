@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:14:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/19 23:02:24 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/20 00:45:10 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,16 +128,14 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 	int	holds;
 	int	keynum;
 	int index;
-
+	
 	keynum = 0;
 	index = 0;
-	while (index < indpb)
+	while (index < indpb && ska->size > 0)
 	{
 		holdf = hold_first(ska->head, indpb);
 		if (holdf == -1)
 			return ;
-		holds = hold_second(ska->head, indpb);
-		//keynum = lmove(holdf, holds, ska);
 		lnum = numberdex(holdf, ska->head);
 		while (ska->head->index != lnum)
 		{
@@ -147,15 +145,13 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 				rorot(ska, 'a');
 		}
 		pushb(ska, skb);
-		if (skb->size >= 1 && skb->head->index < indrb)
+		if (skb->size > 1 && skb->head->index < indrb)
 		{
-			if (ska->head->index > indpb)
+			if (ska->head->index > indpb && ska->size > 1)
 				rrot(ska, skb);
 			else
 				rot(skb, 'b');
 		}
-		//printf("data\n");
-		//printf("datahhf\n");
 		index++;
 	}
 }

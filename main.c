@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/19 22:49:47 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/20 00:55:46 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	main(int ac, char **av)
 	t_node	*tempb;
 	int		indpb;
 	int		indrb;
+	int		index;
+	int		middle;
 
 	if(ac > 1)
 	{
-		indpb = 5;
-		indrb = 3;
 		ska = malloc(sizeof(t_stack));
 		skb = malloc(sizeof(t_stack));
 		init_stack(ska);
@@ -67,23 +67,34 @@ int	main(int ac, char **av)
 				sorting_ten(ska, skb);
 			else if(ska->size > 10 && ska->size <= 100)
 			{
-				while (ska->size > 0)
+				indpb = ska->size / 5;
+				indrb = indpb / 2;
+				index = 0;
+				middle = ska->size / 5;
+				while (ska->size > 0 && index < 5)
 				{
 					chanks(ska, skb, indpb, indrb);
-					indpb += 5;
-					indrb += 5;
-				//	printf("indepb=>%d\n",indpb);
-				//	printf("inderb=>%d\n",indrb);
+					indpb += middle;
+					indrb += middle;
+					index++;
 				}
 				pushabeta(ska,skb);
 			}
 			else if(ska->size > 100 && ska->size <= 500)
 			{
+				indpb = ska->size / 11;
+				indrb = indpb / 2;
+				index = 0;
+				middle = ska->size / 11;
+				while (ska->size > 0 && index < 11)
+				{
+					chanks(ska, skb, indpb, indrb);
+					indpb += middle;
+					indrb += middle;
+					index++;
+				}
+				pushabeta(ska,skb);
 			}
 		}
-		/*printf("stack_a\n");
-		print(ska);
-		printf("stack_b\n");
-		print(skb);*/
 	}
 }
