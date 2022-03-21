@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/19 17:48:17 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/21 17:43:19 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,9 @@ void    chanks(t_stack *ska, t_stack *skb, int indpb, int indrb);
 int		getindexes(t_stack *stack, int number);
 int		biggestnum(t_node *head);
 void    pushabeta(t_stack *ska, t_stack *skb);
+char	**ft_split(char const *s, char c);
+size_t  ft_strlen(const char *s);
+char    *ft_strdup(const char *s);
+char    *ft_strjoin(char *s1, char const *s2);
 
 #endif
