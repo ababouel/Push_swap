@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/21 17:43:19 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:59:16 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ char	**ft_split(char const *s, char c);
 size_t  ft_strlen(const char *s);
 char    *ft_strdup(const char *s);
 char    *ft_strjoin(char *s1, char const *s2);
+int		ft_atoi(const char *str);
 
 #endif

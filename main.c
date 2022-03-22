@@ -25,14 +25,61 @@ int	checknum(char **data)
 		i = 0;
 		while (data[y][i])
 		{
-			if (data[y][i] > '0' && data[y][i] < '9')
+			if (data[y][i] != '0' && data[y][i] != '9'
+					&& data[y][i] != '8' && data[y][i] != '7'
+					&& data[y][i] != '6' && data[y][i] != '5'
+					&& data[y][i] != '4' && data[y][i] != '3'
+					&& data[y][i] != '2' && data[y][i] != '1'
+					&& data[y][i] != '-' && data[y][i] != '+')
 				return (-1);
+			if ((data[y][i] == '-' && data[y][i + 1] == '-')
+					|| (data[y][i] == '+' && data[y][i + 1] == '+'))
+				return(-1);
 			i++;
 		}
 		y++;
 	}
 	return (1);
 }
+
+int	ft_lenstr(char **data)
+{
+	int	index;
+
+	index = 0;
+	while(data[index])
+		index++;
+	return (index);
+}
+
+/*int	checkdouble(char **data)
+{
+	int len;
+	int len2;
+	int	*dint;
+
+	len = ft_lenstr(data);
+	dint = malloc(sizeof(int) * len);
+	len = 0;
+	while (data[len])
+	{
+		dint[len] = ft_atoi(data[len]);
+		len++;
+	}
+	len = 0
+	while (dint[len])
+	{
+		len2 = 0;
+		while(dint[len2])
+		{
+			if(dint[len2] == dint[len])
+				return (-1);
+			len2++;
+		}
+		len++;
+	}
+	return (1);
+}*/
 
 int	main(int ac, char **av)
 {
