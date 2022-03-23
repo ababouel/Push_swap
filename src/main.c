@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/20 00:55:46 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:00:08 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ void	injectdata(t_stack *ska, char **str)
 	int		index;
 	t_node	*temp;
 
-	index = 1;
+	index = 0;
 	temp = NULL;
 	while (str[index])
 	{
 		temp = ska->tail;
-		ins_next_node(ska,temp,atoi(str[index]));
+		ins_next_node(ska, temp, ft_atoi(str[index]));
+		//printf("str=>%s\n",str[index]);
 		index++;
 	}
 }
@@ -45,6 +46,8 @@ int	main(int ac, char **av)
 	t_stack *skb;
 	t_node	*tempa;
 	t_node	*tempb;
+	char	**data;
+	int		*lnu;
 	int		indpb;
 	int		indrb;
 	int		index;
@@ -52,11 +55,15 @@ int	main(int ac, char **av)
 
 	if(ac > 1)
 	{
+		data = injectstr(av);
+		checknu(data);
+		lnu = dtoi(data);
+		checkmaxd(lnu, data);
 		ska = malloc(sizeof(t_stack));
 		skb = malloc(sizeof(t_stack));
 		init_stack(ska);
 		init_stack(skb);
-		injectdata(ska,av);
+		injectdata(ska, data);
 		if (is_sorted(ska) == 1){
 			indexthenode(ska);
 			if (ska->size == 2)

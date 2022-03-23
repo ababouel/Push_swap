@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/22 17:59:16 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/23 02:56:53 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,10 @@ size_t  ft_strlen(const char *s);
 char    *ft_strdup(const char *s);
 char    *ft_strjoin(char *s1, char const *s2);
 int		ft_atoi(const char *str);
+void    checknu(char **data);
+void	ft_freememx(void **data);
+int		*dtoi(char **data);
+void	checkmaxd(int *lnu, char **data);
+char	**injectstr(char **str);
 
 #endif
