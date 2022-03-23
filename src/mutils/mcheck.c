@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:49:49 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/23 01:23:08 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:53:06 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**injectstr(char **str)
 	int		index;
 	char	*alldata;
 	char	**data;
-	
+
 	index = 1;
 	alldata = NULL;
 	while (str[index])

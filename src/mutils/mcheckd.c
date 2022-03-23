@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 23:39:54 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/23 02:56:10 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:55:11 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	*dtoi(char **data)
 	len = ft_lenstr(data);
 	lnu = malloc(sizeof(int) * len);
 	len = 0;
-	while(data[len])
+	while (data[len])
 	{
 		lnu[len] = ft_atoi(data[len]);
 		len++;
@@ -38,16 +38,17 @@ int	*dtoi(char **data)
 	return (lnu);
 }
 
-int	isdouble(int	*dint)
+int	isdouble(int *dint, int size)
 {
 	int	len;
-	int len2;
+	int	len2;
 
 	len = 0;
-	while (dint[len])
+	len2 = 0;
+	while (len < size)
 	{
 		len2 = len + 1;
-		while (dint[len2])
+		while (len2 < size)
 		{
 			if (dint[len2] == dint[len])
 				return (-1);
@@ -56,7 +57,7 @@ int	isdouble(int	*dint)
 		len++;
 	}
 	len = 0;
-	while (dint[len])
+	while (len < size)
 	{
 		if (dint[len] < -2147483648 && dint[len] > 2147483647)
 			return (-1);
@@ -65,9 +66,12 @@ int	isdouble(int	*dint)
 	return (1);
 }
 
-void	checkmaxd (int *lnu, char **data)
+void	checkmaxd(int *lnu, char **data)
 {
-	if (isdouble(lnu) == -1)
+	int	size;
+
+	size = ft_lenstr(data);
+	if (isdouble(lnu, size) == -1)
 	{
 		ft_freememx((void **) data);
 		free(lnu);

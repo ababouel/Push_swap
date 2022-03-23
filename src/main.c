@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/23 03:00:08 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/23 19:26:36 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,14 @@ int	main(int ac, char **av)
 					indpb += middle;
 					indrb += middle;
 					index++;
+					if (index == 10)
+					{
+						sorting_ten(ska, skb);
+						
+					}
 				}
 				pushabeta(ska,skb);
+
 			}
 		}
 	}
