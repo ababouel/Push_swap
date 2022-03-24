@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/23 19:26:36 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:49:01 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,14 @@ int	main(int ac, char **av)
 				middle = ska->size / 11;
 				while (ska->size > 0 && index < 11)
 				{
+					printf("data=>15\n");
 					chanks(ska, skb, indpb, indrb);
+					printf("data%d\n",index);
 					indpb += middle;
 					indrb += middle;
 					index++;
-					if (index == 10)
-					{
-						sorting_ten(ska, skb);
-						
-					}
 				}
+				sorting_tenx(ska, skb);
 				pushabeta(ska,skb);
 
 			}

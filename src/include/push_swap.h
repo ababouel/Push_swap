@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/23 02:56:53 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:20:45 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void	ft_freememx(void **data);
 int		*dtoi(char **data);
 void	checkmaxd(int *lnu, char **data);
 char	**injectstr(char **str);
+void    sorting_tenx(t_stack *ska, t_stack *skb);
 
 #endif
