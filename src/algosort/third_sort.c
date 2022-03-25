@@ -48,17 +48,17 @@ int	hold_first(t_node *head, int proxi)
 int	hold_second(t_node *head, int proxi)
 {
 	t_node	*temp;
-	int		result;
+	int		index;
 
 	temp = head;
-	result = 0;
+	index = 0;
 	while (temp != NULL)
 	{
 		if(temp->index < proxi)
-			result++;
+			index = temp->index;
 		temp = temp->next;
 	}
-	return (result);
+	return (index);
 }
 
 void	indexthenode(t_stack *ska)
@@ -135,7 +135,7 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 	{
 		holdf = hold_first(ska->head, indpb);
 		if (holdf == -1)
-			return ;
+			return ;	
 		lnum = numberdex(holdf, ska->head);
 		while (ska->head->index != lnum)
 		{
@@ -156,18 +156,14 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 			pushb(ska, skb);
 		if (skb->size > 1 && skb->head->index < indrb)
 		{
-			// printf("=>%d\n",indpb);
-			// printf(">%p\n",ska->head);
 			if (ska->head != 0x0 
 				&& ska->head->index > indpb 
 				&& ska->size > 1)
 				rrot(ska, skb);
 			else
 				rot(skb, 'b');
-		}
-		
+		}	
 		index++;
-		// printf("index=>%d\n",index);
 	}
 }
 

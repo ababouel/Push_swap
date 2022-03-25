@@ -102,7 +102,8 @@ int	main(int ac, char **av)
 					indrb += middle;
 					index++;
 				}
-				sorting_tenx(ska, skb);
+				if (ska->size > 1)
+					sorting_tenx(ska, skb);
 				pushabeta(ska,skb);
 			}
 		}
