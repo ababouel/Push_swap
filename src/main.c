@@ -72,7 +72,7 @@ int	main(int ac, char **av)
 				sort_threenode(ska, 'a');
 			else if(ska->size <= 10)
 				sorting_ten(ska, skb);
-			else if(ska->size > 10 && ska->size <= 100)
+			else if(ska->size <= 100)
 			{
 				indpb = ska->size / 5;
 				indrb = indpb / 2;
@@ -85,26 +85,25 @@ int	main(int ac, char **av)
 					indrb += middle;
 					index++;
 				}
+				if(ska->size > 1)
+					sorting_tenx(ska, skb);	
 				pushabeta(ska,skb);
 			}
-			else if(ska->size > 100 && ska->size <= 500)
+			else if(ska->size <= 500)
 			{
-				indpb = ska->size / 11;
+				indpb = ska->size / 9;
 				indrb = indpb / 2;
 				index = 0;
-				middle = ska->size / 11;
-				while (ska->size > 0 && index < 11)
+				middle = ska->size / 9;
+				while (ska->size > 0 && index < 9)
 				{
-					printf("data=>15\n");
 					chanks(ska, skb, indpb, indrb);
-					printf("data%d\n",index);
 					indpb += middle;
 					indrb += middle;
 					index++;
 				}
 				sorting_tenx(ska, skb);
 				pushabeta(ska,skb);
-
 			}
 		}
 	}

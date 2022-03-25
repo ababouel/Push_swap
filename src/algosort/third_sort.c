@@ -140,19 +140,34 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 		while (ska->head->index != lnum)
 		{
 			if ((ska->size / 2) > holdf)
-				rot(ska, 'a');
+			{
+					if (skb->size > 1
+					 		&& skb->head->index < indrb 
+							&& ska->head->index > indpb 
+							&& ska->size > 1)
+						rrot(ska, skb);
+					else
+						rot(ska, 'a');
+			}
 			else 
 				rorot(ska, 'a');
 		}
-		pushb(ska, skb);
+		if(ska->size > 0)
+			pushb(ska, skb);
 		if (skb->size > 1 && skb->head->index < indrb)
 		{
-			if (ska->head->index > indpb && ska->size > 1)
+			// printf("=>%d\n",indpb);
+			// printf(">%p\n",ska->head);
+			if (ska->head != 0x0 
+				&& ska->head->index > indpb 
+				&& ska->size > 1)
 				rrot(ska, skb);
 			else
 				rot(skb, 'b');
 		}
+		
 		index++;
+		// printf("index=>%d\n",index);
 	}
 }
 
