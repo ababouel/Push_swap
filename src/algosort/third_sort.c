@@ -6,114 +6,20 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:14:53 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/24 19:02:13 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/26 16:35:07 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	lowestnumexp(t_node *head)
-{
-	int		min;
-	t_node	*temp;
-
-	min = 2147483647;
-	temp = head;
-	while (temp != NULL)
-	{
-		if (min > temp->data && temp->check == 0)
-			min = temp->data;
-		temp = temp->next;
-	}
-	return (min);
-}
-
-int	hold_first(t_node *head, int proxi)
-{
-	t_node	*temp;
-	int 	index;
-
-	temp = head;
-	index = 0;
-	while (temp != NULL)
-	{
-		if (temp->index < proxi)
-			return (index);
-		temp = temp->next;
-		index++;
-	}
-	return (-1);
-}
-
-int	hold_second(t_node *head, int proxi)
-{
-	t_node	*temp;
-	int		index;
-
-	temp = head;
-	index = 0;
-	while (temp != NULL)
-	{
-		if(temp->index < proxi)
-			index = temp->index;
-		temp = temp->next;
-	}
-	return (index);
-}
-
-void	indexthenode(t_stack *ska)
-{
-	int index;
-	int	num;
-	int size;
-	t_node *temp;
-	t_node *temp2;
-
-	index = 0;
-	temp = ska->head;
-	size = 0;
-	temp2 = NULL;
-	while (temp != NULL)
-	{
-		num = lowestnumexp(ska->head);
-		size = getindex(ska, num);
-		temp2 = nodex(ska,size);
-		temp2->check = 1;
-		temp2->index = index;
-		temp = temp->next;
-		index++;
-	}
-}
-
-int	lmove(int holdf, int holds, t_stack *ska)
-{
-	int numbf;
-	int	numbs;
-
-	numbf = 0;
-	numbs = 0;
-	if (holdf > (ska->size / 2))
-		numbf = ska->size - holdf;
-	else
-		numbf = holdf - 1;
-	if (holds > (ska->size / 2))
-		numbs = ska->size - holds;
-	else
-		numbs = holds - 1;
-	if (numbf < numbs)
-		return (holdf);
-	else
-		return (holds);
-}
-
 int	numberdex(int dex, t_node *head)
 {
 	t_node	*temp;
 	int		index;
-	
+
 	temp = head;
 	index = 0;
-	while(index < dex)
+	while (index < dex)
 	{
 		temp = temp->next;
 		index++;
@@ -125,44 +31,42 @@ void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb)
 {
 	int	lnum;
 	int	holdf;
-	int	holds;
-	int	keynum;
-	int index;
-	
-	keynum = 0;
+	//int	holds;
+	int	index;
+
 	index = 0;
 	while (index < indpb && ska->size > 0)
 	{
 		holdf = hold_first(ska->head, indpb);
 		if (holdf == -1)
-			return ;	
+			return ;
 		lnum = numberdex(holdf, ska->head);
 		while (ska->head->index != lnum)
 		{
 			if ((ska->size / 2) > holdf)
 			{
-					if (skb->size > 1
-					 		&& skb->head->index < indrb 
-							&& ska->head->index > indpb 
-							&& ska->size > 1)
-						rrot(ska, skb);
-					else
-						rot(ska, 'a');
+				if (skb->size > 1
+					&& skb->head->index < indrb
+					&& ska->head->index > indpb
+					&& ska->size > 1)
+					rrot(ska, skb);
+				else
+					rot(ska, 'a');
 			}
-			else 
+			else
 				rorot(ska, 'a');
 		}
-		if(ska->size > 0)
+		if (ska->size > 0)
 			pushb(ska, skb);
 		if (skb->size > 1 && skb->head->index < indrb)
 		{
-			if (ska->head != 0x0 
-				&& ska->head->index > indpb 
+			if (ska->head != 0x0
+				&& ska->head->index > indpb
 				&& ska->size > 1)
 				rrot(ska, skb);
 			else
 				rot(skb, 'b');
-		}	
+		}
 		index++;
 	}
 }

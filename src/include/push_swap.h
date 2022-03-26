@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/24 18:20:45 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:00:22 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,30 @@ int		sort_threenode(t_stack *stack, char c);
 void	sorttwnode(t_stack *stack, char c);
 int		getindex(t_stack *stack, int number);
 void	sorting_ten(t_stack *ska, t_stack *skb);
-void    indexthenode(t_stack *ska);
-void    chanks(t_stack *ska, t_stack *skb, int indpb, int indrb);
+void	indexthenode(t_stack *ska);
+void	chanks(t_stack *ska, t_stack *skb, int indpb, int indrb);
 int		getindexes(t_stack *stack, int number);
 int		biggestnum(t_node *head);
-void    pushabeta(t_stack *ska, t_stack *skb);
+void	pushabeta(t_stack *ska, t_stack *skb);
 char	**ft_split(char const *s, char c);
-size_t  ft_strlen(const char *s);
-char    *ft_strdup(const char *s);
-char    *ft_strjoin(char *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char *s1, char const *s2);
 int		ft_atoi(const char *str);
-void    checknu(char **data);
+void	checknu(char **data);
 void	ft_freememx(void **data);
 int		*dtoi(char **data);
-void	checkmaxd(int *lnu, char **data);
+void	checkmaxd(long *lnu, char **data);
 char	**injectstr(char **str);
-void    sorting_tenx(t_stack *ska, t_stack *skb);
+void	sorting_tenx(t_stack *ska, t_stack *skb);
+int		lowestnumexp(t_node *head);
+int		hold_first(t_node *head, int proxi);
+int		hold_second(t_node *head, int proxi);
+int		lmove(int holdf, int holds, t_stack *ska);
+long	ft_atol(const char *str);
+long	*dtol(char **data);
+int		isdouble(long *dint, int size);
+int		isint(long *dint, int size);
+int		ft_lenstr(char **data);
 
 #endif

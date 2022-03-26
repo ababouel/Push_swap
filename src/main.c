@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/24 18:49:01 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:28:23 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ int	main(int ac, char **av)
 {
 	t_stack	*ska;
 	t_stack *skb;
-	t_node	*tempa;
-	t_node	*tempb;
 	char	**data;
-	int		*lnu;
 	int		indpb;
 	int		indrb;
 	int		index;
@@ -57,8 +54,7 @@ int	main(int ac, char **av)
 	{
 		data = injectstr(av);
 		checknu(data);
-		lnu = dtoi(data);
-		checkmaxd(lnu, data);
+		checkmaxd(dtol(data), data);
 		ska = malloc(sizeof(t_stack));
 		skb = malloc(sizeof(t_stack));
 		init_stack(ska);
