@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/26 20:08:02 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/26 23:36:15 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ int		isdouble(long *dint, int size);
 int		isint(long *dint, int size);
 int		ft_lenstr(char **data);
 void    injectnode(t_stack *ska, char **str);
+int		numberdex(int dex, t_node *head);
+void	chanklast(t_stack *ska, t_stack *skb, int indpb, int indrb);
 
 #endif
