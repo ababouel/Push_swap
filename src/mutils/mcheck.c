@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:49:49 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/26 19:41:23 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:08:07 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,19 @@ char	**injectstr(char **str)
 	}
 	data = ft_split(alldata, ' ');
 	return (data);
+}
+
+void	injectnode(t_stack *ska, char **str)
+{
+	int		index;
+	t_node	*temp;
+
+	index = 0;
+	temp = NULL;
+	while (str[index])
+	{
+		temp = ska->tail;
+		ins_next_node(ska, temp, ft_atoi(str[index]));
+		index++;
+	}
 }

@@ -6,39 +6,11 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:55:43 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/26 19:28:23 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/26 20:08:37 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
-
-void	injectdata(t_stack *ska, char **str)
-{
-	int		index;
-	t_node	*temp;
-
-	index = 0;
-	temp = NULL;
-	while (str[index])
-	{
-		temp = ska->tail;
-		ins_next_node(ska, temp, ft_atoi(str[index]));
-		//printf("str=>%s\n",str[index]);
-		index++;
-	}
-}
-
-void	print(t_stack *ska)
-{
-	t_node *temp;
-
-	temp = ska->head;
-	while (temp != NULL)
-	{
-		printf("-- %d --/-- %d --\n", temp->data, temp->index);
-		temp = temp->next;
-	}
-}
 
 int	main(int ac, char **av)
 {
@@ -59,7 +31,7 @@ int	main(int ac, char **av)
 		skb = malloc(sizeof(t_stack));
 		init_stack(ska);
 		init_stack(skb);
-		injectdata(ska, data);
+		injectnode(ska, data);
 		if (is_sorted(ska) == 1){
 			indexthenode(ska);
 			if (ska->size == 2)
