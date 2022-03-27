@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/27 19:40:54 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/27 20:04:46 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ long	*dtol(char **data);
 int		isdouble(long *dint, int size);
 int		isint(long *dint, int size);
 int		ft_lenstr(char **data);
-void    injectnode(t_stack *ska, char **str);
+void	injectnode(t_stack *ska, char **str);
 int		numberdex(int dex, t_node *head);
 
 #endif
