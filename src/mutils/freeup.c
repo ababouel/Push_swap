@@ -24,3 +24,16 @@ void	ft_freememx(void **data)
 	}
 	free(data);
 }
+
+void	ft_freestack(t_stack *sk)
+{
+	t_node *node;
+
+	while(sk->head != NULL)
+	{
+		node = sk->head;
+		sk->head = sk->head->next;
+		free(node);
+	}
+	free(sk);
+}

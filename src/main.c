@@ -68,7 +68,8 @@ int	main(int ac, char **av)
 		injectnode(ska, data);
 		if (is_sorted(ska) == 1)
 			init(ska, skb);
+		ft_freestack(ska);
+		ft_freestack(skb);
 	}
-	while (1){}
 	return (0);
 }

@@ -76,6 +76,7 @@ char	**injectstr(char **str)
 		index++;
 	}
 	data = ft_split(alldata, ' ');
+	free(alldata);
 	return (data);
 }
 
@@ -92,4 +93,5 @@ void	injectnode(t_stack *ska, char **str)
 		ins_next_node(ska, temp, ft_atoi(str[index]));
 		index++;
 	}
+	ft_freememx((void **)str);
 }

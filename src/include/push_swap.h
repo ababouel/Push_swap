@@ -40,6 +40,7 @@ int		rot(t_stack *stack, char c);
 void	rrorot(t_stack *ska, t_stack *skb);
 void	sswap(t_stack *ska, t_stack *skb);
 void	rrot(t_stack *ska, t_stack *skb);
+void	ft_freestack(t_stack *sk);
 t_node	*nodex(t_stack *stack, int size);
 int		is_sorted(t_stack *stack);
 int		lowestnum(t_node *head);
