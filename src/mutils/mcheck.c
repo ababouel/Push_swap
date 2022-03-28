@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 22:49:49 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/26 20:08:07 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:50:47 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	condata(char **data, int i, int y)
 	if ((data[y][i] == '-' && data[y][i + 1] == '-')
 			|| (data[y][i] == '+' && data[y][i + 1] == '+')
 			|| (data[y][i] == '-' && data[y][i + 1] == '\0')
-			|| (data[y][i] == '+' && data[y][i + 1] == '\0'))
+			|| (data[y][i] == '+' && data[y][i + 1] == '\0')
+			|| (data[y][i] == '-' && data[y][i + 1] == '+')
+			|| (data[y][i] == '+' && data[y][i + 1] == '-'))
 		return (-1);
 	return (1);
 }
@@ -54,7 +56,7 @@ void	checknu(char **data)
 	if (isnum(data) == -1)
 	{
 		ft_freememx((void **)data);
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 }

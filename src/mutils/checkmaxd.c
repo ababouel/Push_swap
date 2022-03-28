@@ -6,7 +6,7 @@
 /*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 19:52:01 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/26 19:53:17 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:48:39 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	checkmaxd(long *lnu, char **data)
 	{
 		ft_freememx((void **) data);
 		free(lnu);
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	if (isint((long *)lnu, size) == -1)
 	{
 		ft_freememx((void **) data);
 		free(lnu);
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 	free(lnu);

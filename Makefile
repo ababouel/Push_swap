@@ -6,7 +6,7 @@
 #    By: ababouel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 14:33:42 by ababouel          #+#    #+#              #
-#    Updated: 2022/03/28 15:18:56 by ababouel         ###   ########.fr        #
+#    Updated: 2022/03/28 15:26:06 by ababouel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,17 @@ NAME = push_swap
 PUSH_SWAP = src/include/push_swap.h
 
 
+
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) $(PUSH_SWAP)
 	cc $(FLAGS) $(OBJS) -o $@
 
 %.o: %.c $(PUSH_SWAP)
 	cc $(FLAGS) -c $< -o $@
 
-
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

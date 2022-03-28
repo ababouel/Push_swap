@@ -69,4 +69,6 @@ int	main(int ac, char **av)
 		if (is_sorted(ska) == 1)
 			init(ska, skb);
 	}
+	while (1){}
+	return (0);
 }
