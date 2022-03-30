@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:26:50 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/30 02:00:29 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/30 05:10:15 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,15 @@ int	rorot(t_stack *stack)
 
 	if (stack->size == 0)
 		return (-1);
-	prevtemp = nodex(stack, (stack->size - 2));
-	prevtemp->next = NULL;
-	temp = stack->tail;
-	temp->next = stack->head;
-	stack->head = temp;
-	stack->tail = prevtemp;
+	if (stack->size > 1)
+	{
+		prevtemp = nodex(stack, (stack->size - 2));
+		prevtemp->next = NULL;
+		temp = stack->tail;
+		temp->next = stack->head;
+		stack->head = temp;
+		stack->tail = prevtemp;
+	}
 	return (0);
 }
 
@@ -105,11 +108,14 @@ int	rot(t_stack *stack)
 
 	if (stack->size == 0)
 		return (-1);
-	temp = stack->head;
-	lstemp = stack->tail;
-	stack->head = stack->head->next;
-	temp->next = NULL;
-	lstemp->next = temp;
-	stack->tail = temp;
+	if (stack->size > 1)
+	{
+		temp = stack->head;
+		lstemp = stack->tail;
+		stack->head = stack->head->next;
+		temp->next = NULL;
+		lstemp->next = temp;
+		stack->tail = temp;
+	}
 	return (0);
 }

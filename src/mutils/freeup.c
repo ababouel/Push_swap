@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freeup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 23:16:37 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/22 23:25:14 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:36:40 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	ft_freememx(void **data)
 
 void	ft_freestack(t_stack *sk)
 {
-	t_node *node;
+	t_node	*node;
 
-	while(sk->head != NULL)
+	while (sk->head != NULL)
 	{
 		node = sk->head;
 		sk->head = sk->head->next;

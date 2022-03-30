@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 22:15:15 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/30 02:05:54 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/30 05:02:40 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	rrorot(t_stack *ska, t_stack *skb)
 {
-	rorot(ska);
-	rorot(skb);
+	if (ska->size > 1)
+		rorot(ska);
+	if (skb->size > 1)
+		rorot(skb);
 }
 
 void	sswap(t_stack *ska, t_stack *skb)
@@ -26,6 +28,8 @@ void	sswap(t_stack *ska, t_stack *skb)
 
 void	rrot(t_stack *ska, t_stack *skb)
 {
-	rot(ska);
-	rot(skb);
+	if (ska->size > 1)
+		rot(ska);
+	if (skb->size > 1)
+		rot(skb);
 }

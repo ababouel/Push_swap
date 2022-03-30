@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ababouel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:08:13 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/28 17:01:54 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:55:51 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int		isint(long *dint, int size);
 int		ft_lenstr(char **data);
 void	injectnode(t_stack *ska, char **str);
 int		numberdex(int dex, t_node *head);
+size_t	ft_strlen(const char *s);
 
 #endif

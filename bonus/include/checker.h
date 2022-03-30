@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:26:32 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/30 04:19:19 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/30 04:41:45 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack {
 	t_node	*tail;
 }	t_stack;
 
-char    **injectstr(char **str);
+char	**injectstr(char **str);
 size_t	ft_strlen(const char *s);
 int		ft_strchr(char *s);
 char	*ft_strjoin(char *s1, char *s2);
@@ -62,4 +62,5 @@ int		ft_atoi(const char *str);
 int		ins_next_node(t_stack *stack, t_node *node, int data);
 long	ft_atol(const char *str);
 t_node	*nodex(t_stack *stack, int size);
+
 #endif
