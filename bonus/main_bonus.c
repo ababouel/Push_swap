@@ -6,7 +6,7 @@
 /*   By: ababouel <ababouel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 15:05:38 by ababouel          #+#    #+#             */
-/*   Updated: 2022/03/30 05:06:09 by ababouel         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:14:39 by ababouel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,27 @@ void	instruction(t_stack *ska, t_stack *skb, char *line)
 		error(ska, skb);
 }
 
+void	init(t_stack *ska, t_stack *skb)
+{
+	char	*line;
+
+	line = get_next_line(0);
+	while (line)
+	{
+		instruction(ska, skb, line);
+		line = get_next_line(0);
+	}
+	if (is_sorted(ska) == 0 && skb->size == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*ska;
 	t_stack	*skb;
 	char	**data;
-	char	*line;
 
 	if (ac > 1)
 	{
@@ -65,16 +80,7 @@ int	main(int ac, char **av)
 		init_stack(ska);
 		init_stack(skb);
 		injectnode(ska, data);
-		line = get_next_line(0);
-		while (line)
-		{
-			instruction(ska, skb, line);
-			line = get_next_line(0);
-		}
-		if (is_sorted(ska) == 0 && skb->size == 0)
-			write(1, "OK\n", 3);
-		else
-			write(1, "KO\n", 3);
+		init(ska, skb);
 		ft_freestack(ska);
 		ft_freestack(skb);
 	}
